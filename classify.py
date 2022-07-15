@@ -14,7 +14,6 @@ green, blue, red, cyan, reset = Fore.GREEN + bright, Fore.BLUE + bright, Fore.RE
 init(convert=True, autoreset=True)
 config_file='yolov3.cfg'
 weights_file = 'yolov3.weights'
-class_file='yolov3.txt'
 total_data = 'data'
 net = cv2.dnn.readNet(weights_file, config_file)
 classes_list = ['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train',
@@ -51,8 +50,7 @@ def get_output_layers(net):
     output_layers = [layer_names[i - 1] for i in net.getUnconnectedOutLayers()]
     return output_layers
 
-def process(image_file):
-    global classes       
+def process(image_file):      
     image = cv2.imread(image_file)
     Width = image.shape[1]
     Height = image.shape[0]
