@@ -1,0 +1,1 @@
+poetry run python classify.py
